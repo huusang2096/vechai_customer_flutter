@@ -1,0 +1,1 @@
+enum OrderHours {officeHours, outsideOfficeHours, weekend}

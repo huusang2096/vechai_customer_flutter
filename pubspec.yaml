@@ -1,0 +1,200 @@
+name: veca_customer
+description: A new Flutter application.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 2.0.2+15
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  timeago: ^2.0.21
+  flutter_device_type: ^0.2.0
+  flutter_secure_storage: ^3.3.1+1
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  carousel_slider: ^1.3.0
+  flutter_svg: ^0.18.0
+  flutter_staggered_grid_view: ^0.3.0
+  sticky_headers: ^0.1.8
+  datetime_picker_formfield: ^0.4.3
+  curved_navigation_bar: ^0.3.0
+  http: ^0.12.0+2
+  retrofit: 1.3.1+1
+  logger: ^0.7.0+2
+  flutter_bloc: ^3.2.0
+  equatable: ^1.0.3
+  progress_dialog: 1.2.0
+  fluttertoast: ^3.1.3
+  device_info: ^0.4.0+4
+  shared_preferences: ^0.5.3+5
+  flutter_launcher_icons: ^0.7.3
+  easy_localization: 1.3.5
+  cached_network_image: ^2.0.0-rc
+  flutter_slidable: ^0.5.4
+  flutter_rating_bar: ^3.0.0
+  enum_to_string: ^1.0.8
+  simple_animations: ^1.3.3
+  flutter_local_notifications: ^4.0.0
+  image_picker: ^0.6.2+3
+  share: ^0.6.3+5
+  qr_flutter: ^3.1.0
+  flutter_html: ^0.11.1
+  webview_flutter: ^0.3.22+1
+  auto_size_text: ^2.1.0
+  launch_review: ^2.0.0
+  random_color: ^1.0.3
+  devicelocale: ^0.2.1
+  dotted_border: ^1.0.4
+  url_launcher: ^5.4.1
+  flutter_screenutil: ^1.0.2
+  flutter_webview_plugin: ^0.3.0+2
+  flutter_country_picker: ^0.1.6
+  permission_handler: ^5.0.1
+  google_maps_flutter: ^0.5.23+1
+  location: ^2.3.5
+  geolocator: ^5.3.2+2
+  latlong: ^0.6.1
+  dio: ^3.0.0
+  barcode_scan: ^1.0.0
+  flutter_facebook_login: ^3.0.0
+  phone_number: ^0.6.0+1
+  firebase_core: ^0.4.0+6
+  firebase_database: ^3.0.4
+  firebase_auth: ^0.15.5+3
+  firebase_messaging: ^5.1.6
+  app_settings: ^3.0.1
+  video_player: ^0.10.11+1
+  chewie: ^0.9.10
+  gradient_bottom_navigation_bar: ^1.0.0+4
+  flutter_widget_from_html: ^0.4.1
+  shimmer: ^1.1.2
+
+dependency_overrides:
+  intl: ^0.16.0
+  http: ^0.12.0+2
+
+
+#flutter pub get
+#flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  #  android: "launcher_icon"
+  android: true
+  ios: true
+  image_path: "assets/icon/logo_customer.jpg"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^1.8.0
+  json_serializable: ^3.2.5
+  retrofit_generator: ^1.3.1+4
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - assets/langs/en-US.json
+    - assets/langs/vi-VN.json
+    - assets/icon/icon.png
+    - assets/icon/app_icon.png
+    - assets/icon/logo.png
+    - img/garbage.jpg
+    - img/facebook.png
+    - img/glass.png
+    - img/garbage.jpg
+    - img/meta.png
+    - img/organic.png
+    - img/pager.png
+    - img/waste.png
+    - img/plastic.png
+    - img/user_placeholder.png
+    - img/icon_address.png
+    - img/ic_pick_48.png
+    - img/ic_pick_96.png
+    - img/trash.jpg
+    - img/map.png
+    - img/qrcode.png
+    - img/house.png
+    - img/sunday.png
+    - img/work.png
+    - img/facebook.png
+    - img/city_green.jpg
+    - img/logo_momo.jpeg
+    - img/price.png
+    - img/vietnam.png
+    - img/america.png
+    - img/background.png
+    - img/location.png
+    - img/profile.png
+    - img/email.png
+    - img/headerTop.png
+    - img/chat.png
+    - img/greenLife.png
+    - img/music.png
+    - img/share.png
+    - img/suggest.png
+    - img/plastic.png
+    - img/carton.png
+    - img/home.png
+    - img/history.png
+    - img/notification.png
+    - img/user.png
+    - img/add_home.png
+    - img/time.png
+    - img/location_home.png
+    - img/home_order.png
+    - img/note_icon.png
+    - img/close.png
+    - img/correct.png
+    - img/delete.png
+    - img/logout.png
+    - img/phone.png
+    - img/logout2.png
+    - img/bell.png
+    - img/ewallet.png
+    - img/splash_screen.png
+    - img/delete_all.png
+    - img/icon_success.png
+    - img/icon_warning.png
+    - img/facebook2.png
+    - img/
+
+  fonts:
+    - family:  EcommerceAppUI
+      fonts:
+        - asset: fonts/EcommerceAppUI.ttf
+    - family: LatoBlack
+      fonts:
+        - asset: fonts/Lato-Black.ttf
+    - family: LatoBold
+      fonts:
+        - asset: fonts/Lato-Bold.ttf
+    - family: LatoMedium
+      fonts:
+        - asset: fonts/Lato-Medium.ttf
+    - family: LatoRegular
+      fonts:
+        - asset: fonts/Lato-Regular.ttf

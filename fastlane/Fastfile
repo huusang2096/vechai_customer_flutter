@@ -1,0 +1,142 @@
+#import_from_git(url: 'https://gitlab.com/mydevsolution/simplest.git', branch: 'master', path: 'fastlane/Fastfile')
+
+fastlane_require 'dotenv'
+
+before_all do
+  Dotenv.overload '.env'
+end
+
+lane :build_flutter do |options|
+    platform = options[:platform]
+    #sh('rm -rf .packages pubspec.lock .flutter-plugins .flutter-plugins-dependencies ios/Podfile.lock ios/Pods')
+    sh('flutter clean')
+    sh('flutter pub get')
+    if !is_ci 
+      sh('flutter pub upgrade')
+      sh('flutter pub run build_runner build --delete-conflicting-outputs')
+      Dir.chdir("..") do
+        sh('get generate locales assets/locales')
+      end
+    end
+    
+    # if platform == 'ios'
+      # sh('bundle exec pod repo update')
+      # sh('bundle exec pod install --project-directory=../ios')
+    #   sh('flutter build ios --no-codesign --config-only')
+    # end
+end
+
+default_platform(:android)
+
+platform :android do
+  desc "Deploy to Firebase App Distribution"
+
+  lane :build_release do
+    # gradle(task: "clean assembleRelease", project_dir: './android')
+    sh('flutter build apk --no-shrink')
+  end
+  
+  lane :upload_firebase do
+      firebase_app_distribution(
+                              app: ENV['FIR_ANDROID_APP_ID'],
+                              apk_path: "build/app/outputs/apk/release/app-release.apk",
+                              service_credentials_file: ENV['FIR_SERVICE_CREDENTIALS_FILE'],
+                              groups: ENV['FIR_GROUP_NAME'],
+                              release_notes_file: ENV['FIR_RELEASE_NOTE_FILE']
+                          )
+  end
+
+  lane :deploy_firebase do |options|
+    skip_flutter = options[:skip_flutter]
+    if !skip_flutter 
+      build_flutter(platform: 'android')
+    end
+    build_release
+    upload_firebase
+  end
+
+  lane :deploy_playstore do |options|
+    skip_flutter = options[:skip_flutter]
+    if !skip_flutter 
+      build_flutter(platform: 'android')
+    end
+    build_release
+    supply(json_key: ENV['JSON_KEY_FILE'], apk: "build/app/outputs/apk/release/app-release.apk")
+  end
+
+  lane :upload_playstore do
+    supply(json_key: ENV['JSON_KEY_FILE'], apk: "build/app/outputs/apk/release/app-release.apk")
+  end
+end
+
+platform :ios do
+  lane :setup_keychain do 
+    sh('security unlock-keychain -p "$LOGIN_KEYCHAIN_PASSWORD" login.keychain')
+    sh('security set-key-partition-list -S apple: -s -k "$LOGIN_KEYCHAIN_PASSWORD" login.keychain')
+  end
+
+  desc "Description of what the lane does"
+  lane :build_adhoc do
+    setup_keychain
+    match(git_branch: ENV['MATCH_GIT_BRANCH'], type: "adhoc", readonly: true,)
+    # sh('bundle exec pod install --project-directory=../ios')
+    sh('flutter build ios --no-codesign --config-only')
+    build_app(
+         workspace: "./ios/Runner.xcworkspace",
+         scheme: "Runner",
+         clean: true,
+         output_directory: './build',
+         output_name: "Runner-profile.ipa",
+         export_options: {
+         method: "ad-hoc"
+         },)
+  end
+
+  lane :upload_firebase do
+    firebase_app_distribution(
+                            app: ENV['FIR_IOS_APP_ID'],
+                            ipa_path: "./build/Runner-profile.ipa",
+                            service_credentials_file: ENV['FIR_SERVICE_CREDENTIALS_FILE'],
+                            release_notes_file: ENV['FIR_RELEASE_NOTE_FILE'],
+                            groups: ENV['FIR_GROUP_NAME'],
+                        )
+  end
+
+  lane :build_appstore do
+    setup_keychain
+    match(git_branch: ENV['MATCH_GIT_BRANCH'], type: "appstore", readonly: true,)
+    # sh('bundle exec pod install --project-directory=../ios')
+    sh('flutter build ios --no-codesign --config-only')
+    build_app(
+      workspace: "./ios/Runner.xcworkspace",
+            scheme: "Runner",
+            clean: true,
+            output_directory: './build',
+            output_name: "Runner-release.ipa",
+            export_options: {
+            method: "app-store"
+            },)
+  end
+
+  lane :upload_testflight do
+    upload_to_testflight(ipa: "./build/Runner-release.ipa", skip_waiting_for_build_processing: true)
+  end
+
+  lane :deploy_firebase do |options|
+    skip_flutter = options[:skip_flutter]
+    if !skip_flutter 
+      build_flutter(platform: "ios")
+    end
+    build_firebase
+    upload_firebase
+  end
+
+  lane :deploy_testflight do |options|
+    skip_flutter = options[:skip_flutter]
+    if !skip_flutter 
+      build_flutter(platform: "ios")
+    end
+    build_appstore
+    upload_testflight
+  end
+end

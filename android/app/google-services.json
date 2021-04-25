@@ -1,0 +1,131 @@
+{
+  "project_info": {
+    "project_number": "399425230047",
+    "firebase_url": "https://veca-d0102.firebaseio.com",
+    "project_id": "veca-d0102",
+    "storage_bucket": "veca-d0102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399425230047:android:96cfbcf1bac2cc9dd0c56a",
+        "android_client_info": {
+          "package_name": "veca.di4l.vn.veca_customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399425230047-f1icesi9ekqu31cnsjq07j42b8ml0qrh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.veca_customer",
+            "certificate_hash": "9766e7a3a5eecea1a32977f0e8ac0229f4f45133"
+          }
+        },
+        {
+          "client_id": "399425230047-efsc2no5ch2ggq98lsbvm465o6aks9eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.veca_customer",
+            "certificate_hash": "9438eab654f9374a303dcb78d02ebb3f571d904e"
+          }
+        },
+        {
+          "client_id": "399425230047-7vcf7akcpj3pgdqu8isbkh8s2ofpg2r2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.veca_customer",
+            "certificate_hash": "a9d9b65ecb57e313288ee9a71d512abb71431ecb"
+          }
+        },
+        {
+          "client_id": "399425230047-jamruhuhn7ks17i2gb3qcapt3eg26e5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeGYw6NV7ifha1FdyWo1ecaALAzCJ4xMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399425230047-jamruhuhn7ks17i2gb3qcapt3eg26e5h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "399425230047-pgkokl2s84lfbv1169dfa10e1bvuq4s6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "veca.di4l.vn.vecaprovider"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399425230047:android:2d0e3e7103150689d0c56a",
+        "android_client_info": {
+          "package_name": "veca.di4l.vn.vecaprovider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399425230047-3q9dck3vbtvemjc3heobfneeob6tm5nu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.vecaprovider",
+            "certificate_hash": "8efa72d1dcac48dc68517fc26faced2d825a3bdc"
+          }
+        },
+        {
+          "client_id": "399425230047-rh6jkkihsc4nh9stirgd0vcgqavnb4e9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.vecaprovider",
+            "certificate_hash": "da92826c217cd76c14f59b827df71c51d138ee77"
+          }
+        },
+        {
+          "client_id": "399425230047-kc8drg29f91d379pgfgurlo8ctel68eq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "veca.di4l.vn.vecaprovider",
+            "certificate_hash": "a9d9b65ecb57e313288ee9a71d512abb71431ecb"
+          }
+        },
+        {
+          "client_id": "399425230047-jamruhuhn7ks17i2gb3qcapt3eg26e5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeGYw6NV7ifha1FdyWo1ecaALAzCJ4xMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399425230047-jamruhuhn7ks17i2gb3qcapt3eg26e5h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "399425230047-pgkokl2s84lfbv1169dfa10e1bvuq4s6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "veca.di4l.vn.vecaprovider"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

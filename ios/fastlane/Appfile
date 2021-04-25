@@ -1,0 +1,8 @@
+app_identifier("veca.di4l.vn.veca-customer") # The bundle identifier of your app
+apple_id("anhvu.t93@gmail.com") # Your Apple email address
+
+itc_team_id("118766133") # App Store Connect Team ID
+team_id("Z9RS2YDHZT") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
